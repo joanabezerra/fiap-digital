@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_EMPRESA")
-@SequenceGenerator(name = "SQ_EMPRESA", sequenceName = "SQ_T_EMPRESA", allocationSize = 1)
+@SequenceGenerator(name = "empresa", sequenceName = "SQ_T_EMPRESA", allocationSize = 1)
 public class Empresa {
 	
 	@Id
@@ -18,10 +18,45 @@ public class Empresa {
 	@Column(name = "CD_EMPRESA")
 	private int codigo;
 	
+	@Column(name = "NM_EMPRESA", nullable = false, length = 50)
 	private String nome;
 	
+	@Column(name = "VL_FATURAMENTO", nullable = false)
 	private double faturamento;
 	
+	@Column(name = "ST_MULTINACIONAL", nullable = false)
 	private boolean multinacional;
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getFaturamento() {
+		return faturamento;
+	}
+
+	public void setFaturamento(double faturamento) {
+		this.faturamento = faturamento;
+	}
+
+	public boolean isMultinacional() {
+		return multinacional;
+	}
+
+	public void setMultinacional(boolean multinacional) {
+		this.multinacional = multinacional;
+	}
 
 }
