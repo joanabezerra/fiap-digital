@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<title>Validando Usuário e Senha</title>
+	</head>
+	<body>
+		<h1>Validando Usuário e Senha</h1>
+		<h:form>
+			<div>
+				<h:outputLabel value="Usuário"/>
+				<h:inputText value="#{validacaoBean.usuario}"/>
+			</div>
+				<h:outputLabel value="Senha"/>
+				<h:inputSecret value="#{validacaoBean.senha}"/>
+			<div>
+			</div>
+			<h:commandButton value="Validar" actionListener="#{validacaoBean.validar()}"/>
+			<h:outputText value="#{validacaoBean.msg}"/>
+		</h:form>
+	</body>
+</html>
