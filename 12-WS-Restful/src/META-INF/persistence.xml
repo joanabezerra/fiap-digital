@@ -5,6 +5,11 @@
 		<properties>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true" />
+			<!-- 
+				create -> drop e create
+				update -> alter table/ create
+				validate -> valida os objetos e o banco
+			 -->
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
 			<property name="javax.persistence.jdbc.user" value="RM81615"/>
