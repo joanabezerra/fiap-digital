@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="titlte">Ocorrências</ui:define>
+	<ui:define name="content">
+		<h1>Ocorrências</h1>
+
+		<h:link outcome="ocorrencia">Cadastrar</h:link>
+
+		<h:messages styleClass="alert alert-success" />
+
+		<h:dataTable value="#{ocorrenciaBean.listar()}" var="o"
+			styleClass="table">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{o.codigo}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Data</f:facet>
+				<h:outputText value="#{o.data.time}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Denunciante</f:facet>
+				#{o.anonimo ? 'Anônimo': o.denunciante }
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+				#{o.descricao}
+			</h:column>
+			<h:column>
+				<h:form>
+					<div class="btn-group">
+						<h:commandButton action="ocorrencia"
+							styleClass="btn btn-outline-primary" value="Editar">
+							<f:setPropertyActionListener value="#{o}"
+								target="#{ocorrenciaBean.ocorrencia}" />
+						</h:commandButton>
+						<h:commandButton styleClass="btn btn-outline-danger" value="Excluir" action="#{ocorrenciaBean.excluir(o.codigo)}"/>
+					</div>
+				</h:form>
+			</h:column>
+		</h:dataTable>
+
+	</ui:define>
+</ui:composition>
+</html>
+
+
+
+
+
